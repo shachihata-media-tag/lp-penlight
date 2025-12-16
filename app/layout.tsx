@@ -4,7 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { SITE_METADATA } from "@/lib/constants";
 import { StructuredData } from "@/components/StructuredData";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 
 
 
