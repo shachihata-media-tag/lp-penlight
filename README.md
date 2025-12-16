@@ -81,4 +81,3 @@ npm start
 ## ライセンス
 
 Private
-
