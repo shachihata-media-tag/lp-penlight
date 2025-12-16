@@ -5,6 +5,8 @@ import { cn } from "@/lib/utils";
 import { SITE_METADATA } from "@/lib/constants";
 import { StructuredData } from "@/components/StructuredData";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 
 
 
@@ -37,6 +39,7 @@ export default function RootLayout({
         <StructuredData />
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
