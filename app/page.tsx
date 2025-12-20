@@ -14,6 +14,7 @@ import { LineSection } from "@/components/LineSection";
 import { FAQ } from "@/components/FAQ";
 import { ContactForm } from "@/components/ContactForm";
 import { SalesforceScript } from "@/components/SalesforceScript";
+import { DemoSection } from "@/components/DemoSection";
 
 export default function Home() {
   return (
@@ -34,6 +35,8 @@ export default function Home() {
            <VideoCard />
         </div>
       </section>
+
+      <DemoSection />
 
       <Specs />
       

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Copy, Wifi, BatteryMedium, Signal, CheckCircle2 } from "lucide-react";
 
@@ -82,9 +83,9 @@ export function PhoneSimulator({
         >
           {/* Logo/Mark Overlay */}
           <div className="relative z-10 p-6 bg-black/10 backdrop-blur-[2px] rounded-full">
-             {/* If logoUrl provided use img, else Shachihata brand */}
+             {/* If logoUrl provided use Image, else Shachihata brand */}
              {logoUrl ? (
-                 <img src={logoUrl} alt="Logo" className="w-24 h-24 object-contain" />
+                 <Image src={logoUrl} alt="Logo" width={96} height={96} className="w-24 h-24 object-contain" />
              ) : (
                 <div className="w-24 h-24 flex items-center justify-center border-2 border-white/80 rounded-full">
                     <span className="font-bold text-lg tracking-widest text-white">LOGO</span>
