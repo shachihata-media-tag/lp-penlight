@@ -20,7 +20,11 @@ export function Hero() {
       
       {/* Background Ambient */}
       <div className="absolute top-0 left-0 w-full h-[80vh] bg-gradient-subtle opacity-40 pointer-events-none -z-10" />
-      <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-accent/10 rounded-full blur-[120px] pointer-events-none -z-10" />
+      
+      {/* Animated Blobs */}
+      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-accent/20 rounded-full blur-[100px] animate-blob mix-blend-screen pointer-events-none -z-10" />
+      <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] bg-accent2/20 rounded-full blur-[100px] animate-blob animation-delay-2000 mix-blend-screen pointer-events-none -z-10" style={{ animationDelay: '2s' }} />
+      <div className="absolute bottom-[-10%] left-[20%] w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[120px] animate-blob animation-delay-4000 mix-blend-screen pointer-events-none -z-10" style={{ animationDelay: '4s' }} />
 
       <div className="container-custom grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         

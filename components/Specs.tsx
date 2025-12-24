@@ -55,9 +55,29 @@ export function Specs() {
                     <span className="font-medium">0.1秒未満（環境による）</span>
                 </div>
             </div>
-            <div className="mt-6 p-4 bg-surface rounded-lg border border-white/5 text-xs text-muted leading-relaxed">
-                本システムはShachihataの独自技術「音響透かし」を使用しています。<br/>
-                人間の耳には聞こえにくい高周波帯域にデータを重畳します。
+            <div className="mt-6 p-4 bg-surface rounded-lg border border-white/5 text-xs text-muted leading-relaxed space-y-3">
+                <p>
+                    本システムはShachihataの独自技術「音響透かし」を使用しています。<br/>
+                    人間の耳には聞こえにくい高周波帯域にデータを重畳します。
+                </p>
+                <div className="pt-3 border-t border-white/5">
+                    <p className="font-bold text-white mb-2">音響透かしの埋め込みについて</p>
+                    <p className="mb-2">
+                        お客様自身で音源への透かし埋め込み・演出調整が可能です。<br/>
+                        詳しい手順は以下の仕様書をご確認ください。
+                    </p>
+                    <a 
+                        href="https://drive.google.com/file/d/19TD_W8XqiWhcZgkpU0Nu2446Kqz4xNu4/view" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-accent hover:text-accent/80 underline decoration-accent/50 underline-offset-4 transition-colors"
+                    >
+                        演出指示動画作成マニュアル (PDF)
+                    </a>
+                    <p className="mt-2 text-[10px] opacity-70">
+                        ※ 弊社にて透かし埋め込み・調整を代行することも可能です（別途有償オプション）。
+                    </p>
+                </div>
             </div>
           </div>
         </div>

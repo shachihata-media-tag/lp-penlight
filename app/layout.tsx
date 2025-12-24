@@ -34,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className="scroll-smooth">
+    <html lang="ja" className="scroll-smooth" suppressHydrationWarning>
       <body className={cn(inter.variable, notoSansJP.variable, "font-sans min-h-screen flex flex-col")}>
         <StructuredData />
         {children}
