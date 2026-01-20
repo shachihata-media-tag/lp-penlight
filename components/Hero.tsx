@@ -16,17 +16,24 @@ export function Hero() {
   const toggleMode = () => setMode((p) => (p === "venue" ? "stream" : "venue"));
 
   return (
-    <section id="hero" className="relative pt-32 pb-20 overflow-hidden min-h-screen flex items-center">
+    <section id="hero" className="relative z-0 pt-32 pb-20 overflow-hidden min-h-screen flex items-center">
       
-      {/* Background Ambient */}
-      <div className="absolute top-0 left-0 w-full h-[80vh] bg-gradient-subtle opacity-40 pointer-events-none -z-10" />
-      
-      {/* Animated Blobs */}
-      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-accent/20 rounded-full blur-[100px] animate-blob mix-blend-screen pointer-events-none -z-10" />
-      <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] bg-accent2/20 rounded-full blur-[100px] animate-blob animation-delay-2000 mix-blend-screen pointer-events-none -z-10" style={{ animationDelay: '2s' }} />
-      <div className="absolute bottom-[-10%] left-[20%] w-[600px] h-[600px] bg-purple-500/10 rounded-full blur-[120px] animate-blob animation-delay-4000 mix-blend-screen pointer-events-none -z-10" style={{ animationDelay: '4s' }} />
+      {/* Video Background */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover"
+        >
+          <source src="/video/webpenlight.mp4" type="video/mp4" />
+        </video>
+        {/* Overlay for readability */}
+        <div className="absolute top-0 left-0 w-full h-full bg-black/60" />
+      </div>
 
-      <div className="container-custom grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div className="container-custom relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
         {/* Left: Text Content */}
         <div className="lg:col-span-7 flex flex-col gap-8 order-2 lg:order-1">

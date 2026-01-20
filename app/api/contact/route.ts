@@ -7,7 +7,7 @@ export async function POST(request: Request) {
     // Salesforce parameters
     const SALESFORCE_URL = "https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8";
     const OLD_ID = "00D280000015pSQ";
-    const RECORD_TYPE = "0125j0000016M9";
+    const RECORD_TYPE = "0125j000000l6M9";
 
     // Prepare form data for Salesforce
     const formData = new URLSearchParams();
