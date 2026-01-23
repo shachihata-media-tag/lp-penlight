@@ -267,12 +267,13 @@ export default function GoodsPage() {
         </div>
         
         {/* Open Sheet Button */}
-        <div className="flex flex-col items-center gap-2 mt-4">
+        <div className="flex flex-col items-center gap-2 mt-6">
           <button
             onClick={() => setIsBottomSheetOpen(true)}
-            className="px-4 py-1.5 bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white text-[9px] font-bold rounded-full transition-all"
+            className="px-8 py-3 bg-white/10 hover:bg-white/20 active:scale-95 backdrop-blur-xl border border-white/30 text-white text-[11px] font-black tracking-widest rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.15)] flex items-center gap-2"
           >
-            GIFを選択
+            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+            ライブラリーから選択
           </button>
         </div>
       </div>
