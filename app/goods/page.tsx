@@ -24,19 +24,34 @@ const COLORS = [
 ];
 
 // GIF list - can be extended to fetch from API/database in the future
-const GIFS = [
-  { id: 'dunk', name: 'Dunk', path: '/gif/dunk.gif' },
-  { id: 'keisei_tominaga', name: '富永 啓生', path: '/gif/富永啓生.gif' },
-  { id: 'hiroto_takahashi', name: '髙橋 宏人', path: '/gif/髙橋宏人.gif' },
+const ASSETS = [
+  { id: 'dunk', name: 'Dunk (GIF)', path: '/gif/dunk.gif' },
+  { id: 'keisei_tominaga', name: '富永 啓生 (GIF)', path: '/gif/富永啓生.gif' },
+  { id: 'hiroto_takahashi_gif', name: '髙橋 宏人 (GIF)', path: '/gif/髙橋宏人.gif' },
+  { id: 'hikakin', name: 'HIKAKIN', path: '/images/HIKAKIN.png' },
+  { id: 'himawari', name: 'HIMAWARIちゃんねる', path: '/images/HIMAWARIちゃんねる.png' },
+  { id: 'mcf2026', name: 'MCF2026', path: '/images/MCF2026.png' },
+  { id: 'mrs_green_apple', name: 'Mrs.GREEN APPLE', path: '/images/Mrs.GREEN APPLE.png' },
+  { id: 'yss', name: 'YSS', path: '/images/YSS.png' },
+  { id: 'chumusan', name: 'ちゅむさん', path: '/images/ちゅむさん.png' },
+  { id: 'grampus', name: 'グランパス', path: '/images/グランパス.png' },
+  { id: 'doara', name: 'ドアラ', path: '/images/ドアラ.png' },
+  { id: 'dragons_slogan', name: 'ドラゴンズ_スローガン', path: '/images/ドラゴンズ_スローガン.png' },
+  { id: 'dragons_logo', name: 'ドラゴンズ Logo', path: '/images/ドラゴンズプライマリーマーク.png' },
+  { id: 'ohno_memorial', name: '大野雄大ノーノー記念', path: '/images/大野雄大ノーノー記念.png' },
+  { id: 'hiejima_makoto', name: '比江島慎', path: '/images/比江島慎.png' },
+  { id: 'fukunaga_hiroki', name: '福永裕基', path: '/images/福永裕基.png' },
+  { id: 'inagaki_sho', name: '稲垣祥', path: '/images/稲垣祥.png' },
+  { id: 'hiroto_takahashi_img', name: '髙橋宏人', path: '/images/髙橋宏人.png' },
 ];
 
 export default function GoodsPage() {
   const [selectedColor, setSelectedColor] = useState(COLORS[0].value);
   const [lightMode, setLightMode] = useState<'solid' | 'pulse'>('solid');
-  const [selectedGifIndex, setSelectedGifIndex] = useState(0);
+  const [selectedAssetIndex, setSelectedAssetIndex] = useState(0);
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
   
-  // Swipe detection for GIF (next/prev)
+  // Swipe detection for Asset (next/prev)
   const touchStartX = useRef<number>(0);
   const touchEndX = useRef<number>(0);
   
@@ -118,7 +133,7 @@ export default function GoodsPage() {
 
   const isWhite = selectedColor === '#FFFFFF';
 
-  // Swipe handlers for GIF (next/prev)
+  // Swipe handlers for Asset (next/prev)
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
   };
@@ -135,11 +150,11 @@ export default function GoodsPage() {
 
     if (Math.abs(distance) > minSwipeDistance) {
       if (distance > 0) {
-        // Swipe left - next GIF
-        setSelectedGifIndex((prev) => (prev + 1) % GIFS.length);
+        // Swipe left - next Asset
+        setSelectedAssetIndex((prev) => (prev + 1) % ASSETS.length);
       } else {
-        // Swipe right - previous GIF
-        setSelectedGifIndex((prev) => (prev - 1 + GIFS.length) % GIFS.length);
+        // Swipe right - previous Asset
+        setSelectedAssetIndex((prev) => (prev - 1 + ASSETS.length) % ASSETS.length);
       }
     }
     
@@ -247,7 +262,7 @@ export default function GoodsPage() {
 
       <video ref={videoRef} playsInline muted autoPlay className="hidden" />
 
-      {/* Main GIF Container */}
+      {/* Main Asset Container */}
       <div className="relative w-full max-w-sm aspect-square flex flex-col items-center justify-center z-10 overflow-hidden">
         <div 
           className="relative w-full h-full touch-pan-x"
@@ -256,12 +271,13 @@ export default function GoodsPage() {
           onTouchEnd={handleTouchEnd}
         >
           <Image
-            key={GIFS[selectedGifIndex].id}
-            src={GIFS[selectedGifIndex].path}
-            alt={GIFS[selectedGifIndex].name}
+            key={ASSETS[selectedAssetIndex].id}
+            src={ASSETS[selectedAssetIndex].path}
+            alt={ASSETS[selectedAssetIndex].name}
             fill
             className="object-contain"
-            unoptimized
+            unoptimized={ASSETS[selectedAssetIndex].path.endsWith('.gif')}
+            sizes="(max-width: 768px) 100vw, 384px"
             priority
           />
         </div>
@@ -329,7 +345,7 @@ export default function GoodsPage() {
         </div>
       </div>
 
-      {/* Bottom Sheet for GIF Selector */}
+      {/* Bottom Sheet for Asset Selector */}
       {isBottomSheetOpen && (
         <>
           {/* Overlay */}
@@ -353,42 +369,43 @@ export default function GoodsPage() {
             
             {/* Header */}
             <div className="px-6 pb-4">
-              <h3 className="text-sm font-bold text-white text-center">GIFを選択</h3>
+              <h3 className="text-sm font-bold text-white text-center">アイテムを選択</h3>
             </div>
             
-            {/* GIF Grid */}
+            {/* Asset Grid */}
             <div className="px-6 pt-2 pb-8 max-h-[60vh] overflow-y-auto no-scrollbar">
               <div className="grid grid-cols-2 gap-3">
-                {GIFS.map((gif, index) => (
+                {ASSETS.map((asset, index) => (
                   <button
-                    key={gif.id}
+                    key={asset.id}
                     onClick={() => {
-                      setSelectedGifIndex(index);
+                      setSelectedAssetIndex(index);
                       setIsBottomSheetOpen(false);
                     }}
                     className="flex flex-col items-center gap-2 group"
                   >
                     <div 
                       className={`relative w-28 h-28 mx-auto rounded-xl border-2 transition-all duration-300 overflow-hidden ${
-                        selectedGifIndex === index 
+                        selectedAssetIndex === index 
                           ? "border-white shadow-[0_0_20px_rgba(255,255,255,0.6)] scale-105" 
                           : "border-white/30 scale-100 opacity-70 group-hover:opacity-100 group-hover:border-white/50"
                       }`}
                     >
                       <Image
-                        src={gif.path}
-                        alt={gif.name}
+                        src={asset.path}
+                        alt={asset.name}
                         fill
                         className="object-cover"
-                        unoptimized
+                        unoptimized={asset.path.endsWith('.gif')}
+                        sizes="128px"
                       />
                     </div>
                     <span className={`text-[10px] font-bold tracking-tight transition-all ${
-                      selectedGifIndex === index
+                      selectedAssetIndex === index
                         ? "text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]"
                         : "text-white/70 group-hover:text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]"
                     }`}>
-                      {gif.name}
+                      {asset.name}
                     </span>
                   </button>
                 ))}
