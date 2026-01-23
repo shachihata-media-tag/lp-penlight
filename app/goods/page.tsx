@@ -26,7 +26,8 @@ const COLORS = [
 // GIF list - can be extended to fetch from API/database in the future
 const GIFS = [
   { id: 'dunk', name: 'Dunk', path: '/gif/dunk.gif' },
-  { id: 'hiroto_takahashi', name: 'Hiroto Takahashi', path: '/gif/hiroto_takahashi.gif' },
+  { id: 'keisei_tominaga', name: '富永 啓生', path: '/gif/富永啓生.gif' },
+  { id: 'hiroto_takahashi', name: '髙橋 宏人', path: '/gif/髙橋宏人.gif' },
 ];
 
 export default function GoodsPage() {
